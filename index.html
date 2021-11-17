@@ -29,7 +29,8 @@
 		document.addEventListener('DOMContentLoaded', function() {     
         document.querySelector('#btn').onclick = function() {      
             var request = new XMLHttpRequest();
-            request.open('GET', 'exam_scores.json');                 
+            request.open('GET', 'cit5students.json'); 
+// 		exam_scores.json
  
             request.onload = function() {                       
                 var data = JSON.parse(request.responseText);   
