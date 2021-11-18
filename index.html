@@ -32,7 +32,7 @@
 <script>      
      var request = new XMLHttpRequest();
      var url= "cit5students.json";
-     request.open('GET', url);
+     request.open('GET', 'cit5students.json');
  
      request.onload = function() {                       
          var data = JSON.parse(request.responseText);   
@@ -41,10 +41,12 @@
 			 var templateText = document.getElementById('tableTemplate').innerHTML;  
               var compiledTemplateText = Handlebars.compile(templateText);         
               compiledHtml = compiledTemplateText({ rows: data })                  
-              document.getElementById('#peopleTable').innerHTML 	
+              document.getElementById('peopleTable').innerHTML = compliedhtml;	
                 
                 }
-                else
+                else {
+		document.getElementById('#peopleTable').innerHTML = "there was a error";
+		}
           }
           request.send(null);
      };
