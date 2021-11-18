@@ -35,12 +35,12 @@
                      for(i = 0; i < data.length; i++) {         
                          contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
                      }
-                     contents += "</table>";
+                     contents += "</peopletable>";
                 
-                     document.querySelector('#result').innerHTML = contents;
+                     document.querySelector('peopletable').innerHTML = contents;
                 }
                 else {
-                    document.querySelector('#result').innerHTML = "There was an error.";
+                    document.querySelector('peopletable').innerHTML = "There was an error.";
                 }
           }
           request.send(null);
