@@ -29,7 +29,12 @@
 		document.addEventListener('DOMContentLoaded', function() {     
         document.querySelector('#btn').onclick = function() {      
             var request = new XMLHttpRequest();
-            request.open('GET', 'cit5students.json'); 
+            request.open('GET', 'cit5students.json');
+		.then(response => response.json())
+		.then(data => {
+			conosle.log(data)
+		})
+		
 // 		exam_scores.json
  
             request.onload = function() {                       
