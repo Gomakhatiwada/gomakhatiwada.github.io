@@ -37,10 +37,10 @@
           }
           contents += "</table>";
                 
-          document.querySelector('table').innerHTML = contents;
+          document.querySelector('result').innerHTML = contents;
                 }
                 else {
-                    document.querySelector('table').innerHTML = "There was an error.";
+                    document.querySelector('#result').innerHTML = "There was an error.";
                 }
           }
           request.send(null);
