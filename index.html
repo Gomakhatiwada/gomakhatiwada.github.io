@@ -41,12 +41,10 @@
 			 var templateText = document.getElementById('tableTemplate').innerHTML;  
               var compiledTemplateText = Handlebars.compile(templateText);         
               compiledHtml = compiledTemplateText({ rows: data })                  
-              document.getElementById('peopleTable').innerHTML = compiledHtml; 	
+              document.getElementById('#peopleTable').innerHTML 	
                 
                 }
-                else {
-                    document.querySelector('#PeopleTable').innerHTML = "There was an error.";
-                }
+                else
           }
           request.send(null);
      };
