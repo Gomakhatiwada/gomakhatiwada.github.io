@@ -12,7 +12,7 @@
      <input type="button" id='btn' value="CIT Majors">
      <input type="button" id='btn' value="Business Majors"> 
 
-     <div id="PeopleTable"></div>   
+     <div id="result"></div>   
 </body>
 
 	<p> We filter our dataset by major
@@ -37,10 +37,10 @@
           	 }
           	 contents += "</table>";
                 
-          	 document.querySelector('#PeopleTable').innerHTML = contents;
+          	 document.querySelector('#result').innerHTML = contents;
 		       }
 		       else {
-			   document.querySelector('#PeopleTable').innerHTML = "There was an error.";
+			   document.querySelector('#result').innerHTML = "There was an error.";
 	  }
 		}
 	request.send(null);
