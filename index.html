@@ -12,7 +12,7 @@
      <input type="button" id='btn' value="CIT Majors">
      <input type="button" id='btn' value="Business Majors"> 
 
-     <div id="result"></div>   
+     <div id="PeopleTable"></div>   
 </body>
 
 	<p> We filter our dataset by major
@@ -25,25 +25,26 @@
 
 <script>      
      var request = new XMLHttpRequest();
-	request.open('GET', 'cit5students.json');
-	
-	request.onload = function() { 
-	    var data = JSON.parse(request.responseText);
-	console.log(data);
-		if (request.status == 200) {
-		 var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-          	 for(i = 0; i < data.length; i++) {         
+     request.open('GET', 'cit5students.json');
+ 
+     request.onload = function() {                      
+         var data = JSON.parse(request.responseText);  
+console.log(data);
+         if (request.status == 200) {
+          var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
+          for(i = 0; i < data.length; i++) {        
           contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-          	 }
-          	 contents += "</table>";
-                
-          	 document.querySelector('#result').innerHTML = contents;
-		       }
-		       else {
-			   document.querySelector('#result').innerHTML = "There was an error.";
-	  }
-		}
-	request.send(null);
+          }
+          contents += "</table>";
+               
+          document.querySelector('#PeopleTable').innerHTML = contents;
+                }
+                else {
+                    document.querySelector('#PeopleTable').innerHTML = "There was an error.";
+}
+         
+     }
+request.send(null);
   </script>
   </body>
   </html>
