@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Select a Major</title>
-	<script src="https://cdnjs.cloudflare.com/Json/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 	</head>
 	
 	<body style='margin-left: 30px;'>
@@ -25,24 +25,25 @@
 
 <script>      
      var request = new XMLHttpRequest();
-     request.open('GET', 'cit5students.json');
- 
-     request.onload = function() {                       
-         var data = JSON.parse(request.responseText);   
-         if (request.status == 200) {
-          var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-          for(i = 0; i < data.length; i++) {         
+	request.open('GET', 'cit5students.json');
+	
+	request.onload = function() { 
+	    var data = JSON.parse(request.responseText);
+	console.log(data);
+		if (request.status == 200) {
+		 var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
+          	 for(i = 0; i < data.length; i++) {         
           contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-          }
-          contents += "</table>";
+          	 }
+          	 contents += "</table>";
                 
-          document.querySelector('result').innerHTML = contents;
-                }
-                else {
-                    document.querySelector('#result').innerHTML = "There was an error.";
-                }
-          }
-          request.send(null);
+          	 document.querySelector('#PeopleTable').innerHTML = contents;
+		       }
+		       else {
+			   document.querySelector('#PeopleTable').innerHTML = "There was an error.";
+	  }
+		}
+	request.send(null);
      };
   });
   </script>
