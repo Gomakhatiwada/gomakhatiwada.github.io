@@ -10,9 +10,9 @@
       <h1>Select A Major</h1>
 
      function getScores(major) {
-	<input type="button" id='btn' value="CIT Majors">
+	<input type="button" id='btn' value="CIT Majors"
 		onclick="getScores('CIT')">
-     	<input type="button" id='btn' value="Business Majors"> 
+     	<input type="button" id='btn' value="Business Majors"
 		onclick="getScores('BUS')">
 	}
 
@@ -22,8 +22,8 @@
 	<p> We filter our dataset by major
      <pre><strong>
 	  [
-	   {"Name":"Rosie","Major":"CIT","Midterm":88,"final":87},
-	   {"Name":"Bruce","Major":"Bus","Midterm":68,"final":87}
+	   {"name":"Rosie","major":"CIT","midterm":88,"final":87},
+	   {"name":"Bruce","major":"Bus","midterm":68,"final":87}
 	  ]
     </strong></pre></p>
 
@@ -42,9 +42,9 @@ console.log(data);
 // 		 contents += "</table>";
                
           document.querySelector('#PeopleTable').innerHTML = contents;
-                }
+	 }
                 else {
-                    document.querySelector('#PeopleTable').innerHTML = "There was an error.";
+          document.querySelector('#PeopleTable').innerHTML = "There was an error.";
 }
          
     }
