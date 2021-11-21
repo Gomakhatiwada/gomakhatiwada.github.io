@@ -20,7 +20,7 @@
 	<p> We filter our dataset by major
      <pre><strong>
 	  [
-	   {"name":"Rosie","major":"CIT","midterm":88,"final":88},
+	   {"name":"Rosie","major":"CIT","midterm":88,"final":88}
 	   {"name":"Bruce","major":"Bus","midterm":68,"final":78}
 	  ]
     </strong></pre></p>
@@ -37,7 +37,7 @@ console.log(data);
           for(i = 0; i < data.length; i++) {        
           contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
           }
-		 contents += "</table>";
+// 		 contents += "</table>";
                
           document.querySelector('#PeopleTable').innerHTML = contents;
 	 }
