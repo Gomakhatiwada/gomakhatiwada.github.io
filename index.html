@@ -10,15 +10,21 @@
       <h1>Select A Major</h1>
 
 	<input type="button" id='btn' value="CIT Majors">
+		onclick="getScores('CIT')">
+     	<input type="button" id='btn' value="Business Majors"> 
+		onclick="getScores('BUS')">
 
      <div id="PeopleTable"></div>   
 </body>
 
 	<p> We filter our dataset by major
      <pre><strong>
-	  [
-	   {"name":"Rosie","major":"CIT","midterm":88,"final":88}
+	   [
+	   {"name":"Rosie","major":"CIT","midterm":88,"final":87}
+	   
+	   {"name":"Bruce","major":"Bus","midterm":68,"final":87}
 	  ]
+	  
     </strong></pre></p>
 
 <script> 
