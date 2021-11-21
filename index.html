@@ -32,7 +32,8 @@
       request.open('GET', url);     
 
       request.onload = function() {                       
-          var data = JSON.parse(request.responseText);    
+          var data = JSON.parse(request.responseText);
+console.log(data);
           if (request.status == 200) {
               var templateText = document.getElementById('tableTemplate').innerHTML;  
               var compiledTemplateText = Handlebars.compile(templateText);         
