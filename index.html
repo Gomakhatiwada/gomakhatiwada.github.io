@@ -26,27 +26,24 @@
     </strong></pre></p>
 
 <script> 
-     var request = new XMLHttpRequest();
-     request.open('GET', 'cit5students.json');
- 
-     request.onload = function() {                      
-         var data = JSON.parse(request.responseText);  
-console.log(data);
-         if (request.status == 200) {
-          var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-          for(i = 0; i < data.length; i++) {        
-          contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+     <script>
+      var request = new XMLHttpRequest();
+      var url = "cit5students.json";     
+      request.open('GET', url);     
+
+      request.onload = function() {                       
+          var data = JSON.parse(request.responseText);    
+          if (request.status == 200) {
+              var templateText = document.getElementById('tableTemplate').innerHTML;  
+              var compiledTemplateText = Handlebars.compile(templateText);         
+              compiledHtml = compiledTemplateText({ rows: data })                 
+              document.getElementById('peopleTable').innerHTML = compiledHtml; 	
           }
-		 contents += "</table>";
-               
-          document.querySelector('#PeopleTable').innerHTML = contents;
-	 }
-                else {
-          document.querySelector('#PeopleTable').innerHTML = "There was an error.";
-}
-         
-    }
-	request.send(null);
-</script>
-</body>
+          else {
+             document.querySelector('#peopleTable').innerHTML = "There was an error, or data not found";
+          }
+      }        
+
+      request.send(null);    
+ </script>
 </html>
