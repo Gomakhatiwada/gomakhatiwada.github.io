@@ -9,8 +9,6 @@
 	<body style='margin-left: 30px;'>
       <h1>Select A Major</h1>
 
-	<input type="button" id='btn' value="CIT Majors">
-		onclick="getScores('CIT')">
      	<input type="button" id='btn' value="Business Majors"> 
 		onclick="getScores('BUS')">
 
