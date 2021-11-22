@@ -4,26 +4,23 @@
 		<meta charset="UTF-8">
 		<title>Select a Major</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-		
-	<input type="button" id='btn' value="CIT Majors" onclick="getScores('CIT')">
-     	<input type="button" id='btn' value="Business Majors" onclick="getScores('BUS')">
-
-</head>
+	</head>
 	
 	<body style='margin-left: 30px;'>
       <h1>Select A Major</h1>
 
-     <div id="PeopleTable"></div>   
+     <div id="PeopleTable"></div>  
+     
+     <input type="button" id='btn' value="CIT Majors" onclick="getScores('CIT')">
+     <input type="button" id='btn' value="Business Majors" onclick="getScores('BUS')">
 </body>
 
 	<p> We filter our dataset by major
      <pre><strong>
-	   [
-	   {"name":"Rosie","major":"CIT","midterm":88,"final":87}
-	   
+	  [
+	   {"name":"Rosie","major":"CIT","midterm":88,"final":87},
 	   {"name":"Bruce","major":"Bus","midterm":68,"final":87}
 	  ]
-	  
     </strong></pre></p>
 
 <script> 
@@ -34,10 +31,7 @@
          var data = JSON.parse(request.responseText);  
 console.log(data);
          if (request.status == 200) {
-          var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-          for(i = 0; i < data.length; i++) {        
-          contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-          }
+        getScores(data);
 // 		 contents += "</table>";
                
           document.querySelector('#PeopleTable').innerHTML = contents;
@@ -48,6 +42,17 @@ console.log(data);
          
     }
 	request.send(null);
+    function getScores(major) {
+        var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
+          for(i = 0; i < data.length; i++) {        
+        if(data[i].name == 'BUS'){
+             contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+        }
+        else{
+            contents += "<tr><td>" + data[i].name + "</td><td>"+ data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+          }
+    }
+}
 </script>
 </body>
 </html>
